@@ -1,4 +1,4 @@
-=== Fonepay for WooCommerce ===
+=== Integrate Fonepay in WooCommerce ===
 Contributors: Prajwol Shrestha
 Tags: woocommerce, Fonepay, payment gateway
 Requires at least: 5.0
@@ -32,12 +32,12 @@ Check out our installation guide and configuration of WooCommerce Fonepay tab [I
 
 You can answer your questions using:
 
-* Our Session [FAQ](https://wordpress.org/plugins/woocommerce-fonepay/faq/).
-* Creating a topic in the [WordPress support forum](https://wordpress.org/support/plugin/fonepay-for-woocommerce) (English only).
+* Our Session [FAQ](https://wordpress.org/plugins/integrate-fonepay-in-woocommerce/faq/).
+* Creating a topic in the [WordPress support forum](https://wordpress.org/support/plugin/integrate-fonepay-in-woocommerce) (English only).
 
 = Contribute =
 
-You can contribute to the source code in our [GitHub](#) page.
+You can contribute to the source code in our [GitHub](https://github.com/act360/fonepay-for-woocommerce) page.
 
 == Installation ==
 
@@ -92,7 +92,13 @@ For downloadable products to WooCommerce default setting is to allow access only
 
 = Where can I report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or email us at developers@act360.com.np
+Bugs can be reported either in our support forum or preferably on the [WooCommerce eSewa GitHub repository](https://github.com/shivapoudel/woocommerce-esewa/issues). You can directly reach our developers at developers@act360.com.np
+
+= Can I contribute to this plugin? =
+
+Of course! Join in on our [GitHub repository](https://github.com/act360/fonepay-for-woocommerce)
+
+
 
 == Credits ==
 [eSewa plugin](https://wordpress.org/plugins/woocommerce-esewa/) and PayPal plugin in WooCommerce core
@@ -105,5 +111,5 @@ Bugs can be reported either in our support forum or email us at developers@act36
 
 == Changelog ==
 
-= 1.0.0 - 20-08-2020 =
+= 1.0.0 - 04-09-2020 =
 * First release.
