@@ -1,8 +1,9 @@
 === Integrate Fonepay in WooCommerce ===
-Contributors: Prajwol Shrestha
+Contributors: act360, prajwolshrestha
 Tags: woocommerce, Fonepay, payment gateway
 Requires at least: 5.0
 Tested up to: 5.4
+Stable tag: trunk
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -22,11 +23,13 @@ Add Fonepay as a payment method in your WooCommerce store.
 
 [Fonepay](https://fonepay.com/) is a Nepali Digital Payment Portal developed by fonepay. This means that if your store doesn't accept payment in NPR, you really do not need this plugin.
 
-The plugin WooCommerce Fonepay was developed without any incentive from F1Soft Company. None of the developers of this plugin have ties to any of this company in anyway.
+The plugin Integrate Fonepay in WooCommerce was developed without any incentive from F1Soft Company. None of the developers of this plugin have ties to any of this company in anyway.
+
 
 = Installation =
 
-Check out our installation guide and configuration of WooCommerce Fonepay tab [Installation](https://wordpress.org/plugins/fonepay-for-woocommerce/installation/).
+Check out our installation guide and configuration of Integrate Fonepay in WooCommerce tab [Installation](https://wordpress.org/plugins/fonepay-for-woocommerce/installation/).
+
 
 = Questions? =
 
@@ -48,17 +51,19 @@ You can contribute to the source code in our [GitHub](https://github.com/act360/
 
 = Automatic installation =
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of WooCommerce Fonepay, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of Integrate Fonepay in WooCommerce, log in to your WordPress dashboard, navigate to the Plugins menu and click Add New.
 
-In the search field type “WooCommerce Fonepay and click Search Plugins. Once you’ve found our payment gateway plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
+In the search field type "Integrate Fonepay in WooCommerce" and click Search Plugins. Once you’ve found our payment gateway plugin you can view details about it such as the the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.
 
 = Manual installation =
 
-The manual installation method involves downloading our woocommerce Fonepay plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+The manual installation method involves downloading our Integrate Fonepay in WooCommerce plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](https://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+
 
 = Updating =
 
 Automatic updates should work like a charm; as always though, ensure you backup your site just in case.
+
 
 == Frequently Asked Questions ==
 
@@ -97,7 +102,6 @@ Bugs can be reported either in our support forum or preferably on the [WooCommer
 = Can I contribute to this plugin? =
 
 Of course! Join in on our [GitHub repository](https://github.com/act360/fonepay-for-woocommerce)
-
 
 
 == Credits ==
