@@ -83,7 +83,7 @@ At the moment the Fonepay accepts payments only from Nepal.
 
 Configure the plugin to receive payments only users who select Nepal in payment information during checkout.
 
-= I don't Fonepay payment option during checkout? =
+= I don't see Fonepay payment option during checkout? =
 
 You forgot to select the Nepal during registration at checkout. The Fonepay payment option works only with Nepal.
 
@@ -91,13 +91,13 @@ You forgot to select the Nepal during registration at checkout. The Fonepay paym
 
 Yes, this is absolutely right and means that the plugin is working as it should.
 
-All payment gateway in WooCommerce must change the order status to "processing" when the payment is confirmed and should never be changed alone to "complete" because the request should go only to the status "finished" after it has been delivered.
+All payment gateways in WooCommerce must change the order status to "processing" when the payment is confirmed and should never be changed alone to "complete" because the request should go only to the status "finished" after it has been delivered.
 
 For downloadable products to WooCommerce default setting is to allow access only when the request has the status "completed", however in WooCommerce settings tab Products you can enable the option "Grant access to download the product after payment" and thus release download when the order status is as "processing."
 
 = Where can I report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or preferably on the [WooCommerce eSewa GitHub repository](https://github.com/shivapoudel/woocommerce-esewa/issues). You can directly reach our developers at developers@act360.com.np
+Bugs can be reported either in our support forum or preferably on the [WooCommerce Fonepay GitHub repository](https://github.com/act360/fonepay-for-woocommerce/issues). You can directly reach our developers at developers@act360.com.np
 
 = Can I contribute to this plugin? =
 

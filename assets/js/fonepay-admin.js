@@ -2,7 +2,7 @@ jQuery( function( $ ) {
 	'use strict';
 
 	/**
-	 * Object to handle eSewa admin functions.
+	 * Object to handle fonepay admin functions.
 	 */
 	var wc_fonepay_admin = {
 		isTestMode: function() {
