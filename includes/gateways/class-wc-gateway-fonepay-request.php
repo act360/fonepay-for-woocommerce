@@ -106,13 +106,15 @@ class WC_Gateway_Fonepay_Request {
         $order->set_order_key(wc_generate_order_key());
 		$order->save();
 
+		
+		$prod_ref_number = str_replace("wc_order_", "", $order->get_order_key());
 		$args = array(
 			'merchant_code' => $this->gateway->merchant_code,
-			'prod_ref_number' => $order->get_order_key(),
+			'prod_ref_number' => $prod_ref_number,
 			'amount' => $order->get_total(),
 			'currency' => get_woocommerce_currency(),
-			'date' => date( 'm/d/Y' ),
-			'remark_1' => $this->get_payment_remark( $order ),
+			'date' => date('m/d/Y'),
+			'remark_1' => $this->get_payment_remark($order),
 			'remark_2' => get_site_url(),
 			'return_url' => $this->notify_url,
 		);
