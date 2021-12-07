@@ -51,8 +51,6 @@ class WC_Gateway_Fonepay extends WC_Payment_Gateway {
 		$this->merchant_code 	= $this->testmode ? $this->get_option( 'sandbox_merchant_code' ) : $this->get_option( 'merchant_code' );
 		$this->merchant_secret 	= $this->testmode ? $this->get_option( 'sandbox_merchant_secret' ) : $this->get_option( 'merchant_secret' );
 
-		
-
 		// Enable logging for events.
 		self::$log_enabled = $this->debug;
 

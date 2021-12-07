@@ -101,11 +101,9 @@ class WC_Gateway_Fonepay_Request {
 	protected function get_fonepay_args( $order, $sandbox ) {
 		WC_Gateway_Fonepay::log( 'Generating payment form for order ' . $order->get_order_number() . '. Notify URL: ' . $this->notify_url );
 
-		//generate new order_key
-		// fix for duplicate PRN number
-        $order->set_order_key(wc_generate_order_key());
+		$order->set_order_key( wc_generate_order_key() );
 		$order->save();
-
+		
 		$args = array(
 			'merchant_code' => $this->gateway->merchant_code,
 			'prod_ref_number' => $order->get_order_key(),
@@ -145,7 +143,7 @@ class WC_Gateway_Fonepay_Request {
 		$product_names = array();
 		foreach ( $items as $item ) {
 			$product = wc_get_product( $item['product_id'] );
-			array_push( $product_names, $product->get_name() );
+			array_push( $product_names, preg_replace( '/[^a-zA-Z0-9_ -]/s', ' ', $product->get_name() ) );
 		}
 
 		$remark = implode( ',', $product_names );

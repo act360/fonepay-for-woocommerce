@@ -30,20 +30,30 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response {
 	 * Check for Fonepay IPN Response.
 	 */
 	public function check_response() {
-		if ( ! empty( $_REQUEST ) && isset( $_REQUEST['PRN'] ) && isset( $_REQUEST['BID'] ) && isset( $_REQUEST['UID'] ) ) { // WPCS: CSRF ok.
+		$required_params = ['PRN', 'PID', 'PS', 'RC', 'DV', 'UID', 'BC', 'INI', 'P_AMT', 'R_AMT'];
+		$missing_params = [];
+
+		foreach ( $required_params as $param ) {
+			if ( ! isset( $_REQUEST[$param] ) ) {
+				array_push( $missing_params, $param );
+			}
+		}
+
+		if ( count( $missing_params ) == 0 ) { // WPCS: CSRF ok.
 			WC_Gateway_Fonepay::log( 'IPN Response: ' . wc_print_r( $_REQUEST, true ) );
-			
+
 			$requested = wp_unslash( $_REQUEST ); // WPCS: CSRF ok, input var ok.
-			
-			if ( $verification_response = $this->validate_ipn( $requested ) ) {
+
+			if ( $verification_response = $this->validate_dv( $requested ) ) {
 				// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 				do_action( 'valid-fonepay-standard-ipn-request', $verification_response );
 				exit;
 			}
+
 			wp_die( 'Fonepay Verification Failure', 'Fonepay IPN', array( 'response' => 500 ) );
 		}
 
-		WC_Gateway_Fonepay::log( 'PRN/BID/UID missing in response' );
+		WC_Gateway_Fonepay::log( 'Parameter'. implode(', ', $missing_params) .' missing in response' );
 
 		wp_die( 'Fonepay Request Failure', 'Fonepay IPN', array( 'response' => 500 ) );
 	}
@@ -54,13 +64,13 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response {
 	 * @param array    $response 	Verification response data
 	 */
 	public function valid_response( $response ) {
-		$order = $this->get_fonepay_order( $_REQUEST['PRN'] );
+		$order = $this->get_fonepay_order( $response['PRN'] );
 
 		if ( $order ) {
 			WC_Gateway_Fonepay::log( 'Found order #' . $order->get_id() );
 
 			// Lowercase returned variables.
-			$payment_status = strtolower( $response['response_code'] );
+			$payment_status = strtolower( $response['RC'] );
 			$payment_status = $payment_status == 'successful' ? 'completed' : 'failed';
 
 			WC_Gateway_Fonepay::log( 'Payment status: ' . $payment_status );
@@ -75,9 +85,9 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response {
 	}
 
 	/**
-	 * Check Fonepay IPN validity.
+	 * Check Fonepay DV validity.
 	 */
-	public function validate_ipn( $requested ) {
+	public function validate_dv( $requested ) {
 		WC_Gateway_Fonepay::log( 'Validating IPN response' );
 
 		$order = $this->get_fonepay_order( $requested['PRN'] );
@@ -88,46 +98,43 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response {
 		}
 
 		$request_data = [
-			'PID' => $this->gateway->merchant_code,
-			'AMT' => $order->get_total(),
-			'PRN' => wc_clean( wp_unslash( $requested['PRN'] ) ),
-			'BID' => wc_clean( wp_unslash( $requested['BID'] ) ),
-			'UID' => wc_clean( wp_unslash( $requested['UID'] ) ),
+			'PRN'	=> wc_clean( wp_unslash( $requested['PRN'] ) ),
+			'PID'	=> wc_clean( wp_unslash( $requested['PID'] ) ),
+			'PS'	=> wc_clean( wp_unslash( $requested['PS'] ) ),
+			'RC'	=> wc_clean( wp_unslash( $requested['RC'] ) ),
+			'DV'	=> wc_clean( wp_unslash( $requested['DV'] ) ),
+			'UID' 	=> wc_clean( wp_unslash( $requested['UID'] ) ),
+			'BC' 	=> wc_clean( wp_unslash( $requested['BC'] ) ),
+			'INI' 	=> wc_clean( wp_unslash( $requested['INI'] ) ),
+			'P_AMT' => wc_clean( wp_unslash( $requested['P_AMT'] ) ),
+			'R_AMT' => wc_clean( wp_unslash( $requested['R_AMT'] ) ),
 		];
-		$request_data['DV'] = hash_hmac( 
+
+		WC_Gateway_Fonepay::log( 'Fonepay DV: ' . $request_data['DV'] );
+
+		$dv = hash_hmac( 
 			'sha512', 
-			$this->gateway->merchant_code.','.
-			$request_data['AMT'].','.
-			$request_data['PRN'].','.
-			$request_data['BID'].','.
-			$request_data['UID'], 
+			$order->get_order_key().','. //PRN
+			$this->gateway->merchant_code.','. //PID
+			$request_data['PS'].','.
+			$request_data['RC'].','.
+			$request_data['UID'].','.
+			$request_data['BC'].','.
+			$request_data['INI'].','.
+			$request_data['P_AMT'].','.
+			$order->get_total(), //R_AMT 
 			$this->gateway->merchant_secret 
 		);
 
-		WC_Gateway_Fonepay::log( 'Sending validation request' );
+		WC_Gateway_Fonepay::log( 'Plugin DV : ' . strtoupper($dv) );
 
-		//Payment verification URL
-		$verification_url = $this->gateway->testmode ? 'https://dev-clientapi.fonepay.com/api/merchantRequest/verificationMerchant' : 'https://clientapi.fonepay.com/api/merchantRequest/verificationMerchant';
-		
-		// Post back to get a response.
-		$response = wp_safe_remote_get( $verification_url.'?'.http_build_query( $request_data ) );
-		$body = wp_remote_retrieve_body( $response );
-		$response_obj = get_object_vars( simplexml_load_string( $body ) );
+		if ( $request_data['DV'] === strtoupper($dv) ) {
+			WC_Gateway_Fonepay::log( 'DV Verification: Successful' );
 
-		WC_Gateway_Fonepay::log( 'IPN verification response: ' . wc_print_r( $response_obj, true ) );
-
-
-		// Check to see if the request was valid.
-		if ( ! is_wp_error( $response ) && $response['response']['code'] >= 200 && $response['response']['code'] < 300 ) {
-			WC_Gateway_Fonepay::log( 'Received valid response from Fonepay IPN' );
-			return $response_obj;
+			return $request_data;
 		}
 
-		WC_Gateway_Fonepay::log( 'Received invalid response from Fonepay IPN' );
-
-		if ( is_wp_error( $response ) ) {
-			WC_Gateway_Fonepay::log( 'Error response: ' . $response->get_error_message() );
-		}
+		WC_Gateway_Fonepay::log( 'DV Verification: Failed' );
 
 		return false;
 	}
@@ -148,11 +155,11 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response {
 			$this->payment_status_paid_cancelled_order( $order );
 		}
 
-		$this->payment_complete( $order, wc_clean( $response['uniqueId'] ), __( 'IPN payment completed', 'woocommerce-fonepay' ) );
+		$this->payment_complete( $order, wc_clean( $response['UID'] ), __( 'IPN payment completed', 'woocommerce-fonepay' ) );
 
 		// Log Fonepay Reference Code.
-		if ( ! empty( $requested['uniqueId'] ) ) {
-			update_post_meta( $order->get_id(), 'Fonepay Trace Id (Trace ID) ', wc_clean( $response['uniqueId'] ) );
+		if ( ! empty( $requested['UID'] ) ) {
+			update_post_meta( $order->get_id(), 'Fonepay Trace Id (Trace ID) ', wc_clean( $response['UID'] ) );
 		}
 	}
 
@@ -164,7 +171,7 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response {
 	 */
 	protected function payment_status_failed( $order, $response ) {
 		/* translators: %s: payment status */
-		$order->update_status( 'failed', sprintf( __( 'Payment %s via IPN.', 'woocommerce-fonepay' ), wc_clean( $response['http_response_code(code)'] ) ) );
+		$order->update_status( 'failed', sprintf( __( 'Payment %s via IPN.', 'woocommerce-fonepay' ) ) );
 	}
 
 	/**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * WooCommerce Fonepay setup
  *
@@ -20,7 +21,7 @@ final class WooCommerce_Fonepay
      *
      * @var string
      */
-    const VERSION = '1.0.0';
+    const VERSION = '1.1.0';
 
     /**
      * Instance of this class.
@@ -35,17 +36,17 @@ final class WooCommerce_Fonepay
     private function __construct()
     {
         // Load plugin text domain.
-        add_action('init', array( $this, 'load_plugin_textdomain' ));
+        add_action('init', array($this, 'load_plugin_textdomain'));
 
         // Checks with WooCommerce is installed.
         if (defined('WC_VERSION') && version_compare(WC_VERSION, '3.0', '>=')) {
             $this->includes();
 
             // Hooks.
-            add_filter('woocommerce_payment_gateways', array( $this, 'add_gateway' ));
-            add_filter('plugin_action_links_' . plugin_basename(WC_FONEPAY_PLUGIN_FILE), array( $this, 'plugin_action_links' ));
+            add_filter('woocommerce_payment_gateways', array($this, 'add_gateway'));
+            add_filter('plugin_action_links_' . plugin_basename(WC_FONEPAY_PLUGIN_FILE), array($this, 'plugin_action_links'));
         } else {
-            add_action('admin_notices', array( $this, 'woocommerce_missing_notice' ));
+            add_action('admin_notices', array($this, 'woocommerce_missing_notice'));
         }
     }
 

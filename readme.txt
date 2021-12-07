@@ -2,7 +2,7 @@
 Contributors: act360, prajwolshrestha
 Tags: woocommerce, Fonepay, payment gateway
 Requires at least: 5.0
-Tested up to: 5.4
+Tested up to: 5.8.2
 Stable tag: trunk
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -15,27 +15,27 @@ Adds Fonepay as payment gateway in WooCommerce plugin.
 
 This plugin adds Fonepay gateway to WooCommerce.
 
-Please notice that [WooCommerce](https://wordpress.org/plugins/woocommerce/) must be installed and active.
+Please note that [WooCommerce](https://wordpress.org/plugins/woocommerce/) must be installed and active.
 
 = Introduction =
 
 Add Fonepay as a payment method in your WooCommerce store.
 
-[Fonepay](https://fonepay.com/) is a Nepali Digital Payment Portal developed by fonepay. This means that if your store doesn't accept payment in NPR, you really do not need this plugin.
+[Fonepay](https://fonepay.com/) is a Nepali Digital Payment Portal developed by fonepay. This means that if your store doesn't accept payment in NPR, you do not need this plugin.
 
-The plugin Integrate Fonepay in WooCommerce was developed without any incentive from F1Soft Company. None of the developers of this plugin have ties to any of this company in anyway.
+The plugin Integrate Fonepay in WooCommerce was developed without any incentive from F1Soft Company. None of the developers of this plugin have any ties to F1Soft whatsoever.
 
 
 = Installation =
 
-Check out our installation guide and configuration of Integrate Fonepay in WooCommerce tab [Installation](https://wordpress.org/plugins/fonepay-for-woocommerce/installation/).
+Check out our installation guide and configuration of Integrate Fonepay in WooCommerce tab [Installation](https://wordpress.org/plugins/integrate-fonepay-in-woocommerce/#installation).
 
 
 = Questions? =
 
 You can answer your questions using:
 
-* Our Session [FAQ](https://wordpress.org/plugins/integrate-fonepay-in-woocommerce/faq/).
+* Our [FAQ](https://wordpress.org/plugins/integrate-fonepay-in-woocommerce/faq/) section.
 * Creating a topic in the [WordPress support forum](https://wordpress.org/support/plugin/integrate-fonepay-in-woocommerce) (English only).
 
 = Contribute =
@@ -95,6 +95,9 @@ All payment gateways in WooCommerce must change the order status to "processing"
 
 For downloadable products to WooCommerce default setting is to allow access only when the request has the status "completed", however in WooCommerce settings tab Products you can enable the option "Grant access to download the product after payment" and thus release download when the order status is as "processing."
 
+= I have set correct Merchant Code & Secret but still get "Fonepay Verification Failure" error. =
+From plugin version 1.1 onwards, there has been change in how the transaction is validated and verified. If you continue to get this error, please contact [Fonepay support](https://fonepay.com/contact-us).
+
 = Where can I report bugs or contribute to the project? =
 
 Bugs can be reported either in our support forum or preferably on the [WooCommerce Fonepay GitHub repository](https://github.com/act360/fonepay-for-woocommerce/issues). You can directly reach our developers at developers@act360.com.np
@@ -117,3 +120,14 @@ Of course! Join in on our [GitHub repository](https://github.com/act360/fonepay-
 
 = 1.0.0 - 04-09-2020 =
 * First release.
+
+= 1.0.1 - 21-10-2020 =
+* Fixed: Duplicate PRN issue by generating new order key for every payment initiation request
+* Fixed: Data validation fail due hash mismatch caused by special characters in remarks
+
+= 1.0.2 - 25-01-2021 =
+* Added: Disabled directory listing of the plugin folder
+
+= 1.1.0 - 06-12-2021 =
+* Removed: Transaction verification via API call to Fonepay
+* Added: Transaction verification using Data Validation Hash that is received after Fonepay redirects back to merchant website
