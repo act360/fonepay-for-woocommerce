@@ -171,7 +171,7 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response {
 	 */
 	protected function payment_status_failed( $order, $response ) {
 		/* translators: %s: payment status */
-		$order->update_status( 'failed', sprintf( __( 'Payment %s via IPN.', 'woocommerce-fonepay' ) ) );
+		$order->update_status( 'failed', sprintf( __( 'Payment %s via IPN.', 'woocommerce-fonepay' ), 'failed' ) );
 	}
 
 	/**

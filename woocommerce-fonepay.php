@@ -3,7 +3,7 @@
  * Plugin Name: Integrate Fonepay in WooCommerce
  * Plugin URI: https://github.com/act360/fonepay-for-woocommerce
  * Description: Integrate Fonepay in WooCommerce is a plugin that enables Fonepay payment in WooCommerce for Nepal.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: ACT360
  * Author URI: https://act360.com.np
  * Text Domain: woocommerce-fonepay

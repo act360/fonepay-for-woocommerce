@@ -131,3 +131,6 @@ Of course! Join in on our [GitHub repository](https://github.com/act360/fonepay-
 = 1.1.0 - 06-12-2021 =
 * Removed: Transaction verification via API call to Fonepay
 * Added: Transaction verification using Data Validation Hash that is received after Fonepay redirects back to merchant website
+
+= 1.1.1 - 18-01-2022 =
+* Fixed - Argument missing error when creating note for payment failed case
