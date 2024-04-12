@@ -21,7 +21,7 @@ final class WooCommerce_Fonepay
      *
      * @var string
      */
-    const VERSION = '1.1.0';
+    const VERSION = '1.2.0';
 
     /**
      * Instance of this class.
@@ -39,7 +39,7 @@ final class WooCommerce_Fonepay
         add_action('init', array($this, 'load_plugin_textdomain'));
 
         // Checks with WooCommerce is installed.
-        if (defined('WC_VERSION') && version_compare(WC_VERSION, '3.0', '>=')) {
+        if (defined('WC_VERSION') && version_compare(WC_VERSION, '4.5', '>=')) {
             $this->includes();
 
             // Hooks.
@@ -98,6 +98,7 @@ final class WooCommerce_Fonepay
     public function add_gateway($methods)
     {
         $methods[] = 'WC_Gateway_Fonepay';
+
         return $methods;
     }
 

@@ -1,165 +1,199 @@
-# Copyright (C) 2020 ACT360
-# This file is distributed under the same license as the WooCommerce Fonepay plugin.
+# Copyright (C) 2024 ACT360
+# This file is distributed under the same license as the Integrate Fonepay in WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Fonepay 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-fonepay\n"
+"Project-Id-Version: Integrate Fonepay in WooCommerce 1.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/integrate-fonepay-in-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-08-20T02:34:50+00:00\n"
+"POT-Creation-Date: 2024-03-22T06:19:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0-alpha\n"
+"X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: woocommerce-fonepay\n"
 
-#: includes/class-wc-gateway-fonepay.php:38
+#. Plugin Name of the plugin
+msgid "Integrate Fonepay in WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/act360/fonepay-for-woocommerce"
+msgstr ""
+
+#. Description of the plugin
+msgid "Integrate Fonepay in WooCommerce is a plugin that enables Fonepay payment in WooCommerce for Nepal."
+msgstr ""
+
+#. Author of the plugin
+msgid "ACT360"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.act360.com.np"
+msgstr ""
+
+#: includes/class-wc-gateway-fonepay.php:41
 msgid "Proceed to Fonepay"
 msgstr ""
 
-#: includes/class-wc-gateway-fonepay.php:39
-#: includes/gateways/settings-fonepay.php:25
+#: includes/class-wc-gateway-fonepay.php:42
+#: includes/gateways/settings-fonepay.php:26
 msgid "Fonepay"
 msgstr ""
 
-#: includes/class-wc-gateway-fonepay.php:40
+#: includes/class-wc-gateway-fonepay.php:43
 msgid "Take payments via Fonepay - sends customers to Fonepay portal to enter their payment information."
 msgstr ""
 
-#: includes/class-wc-gateway-fonepay.php:60
+#: includes/class-wc-gateway-fonepay.php:61
 msgid "SANDBOX ENABLED. You can use testing accounts only."
 msgstr ""
 
-#: includes/class-wc-gateway-fonepay.php:144
+#: includes/class-wc-gateway-fonepay.php:153
 msgid "Gateway Disabled"
 msgstr ""
 
-#: includes/class-wc-gateway-fonepay.php:144
+#: includes/class-wc-gateway-fonepay.php:153
 msgid "Fonepay does not support your store currency."
 msgstr ""
 
-#: includes/class-woocommerce-fonepay.php:105
+#: includes/class-woocommerce-fonepay.php:114
 msgid "View WooCommerce Fonepay settings"
 msgstr ""
 
-#: includes/class-woocommerce-fonepay.php:105
+#: includes/class-woocommerce-fonepay.php:114
 msgid "Settings"
 msgstr ""
 
 #. translators: %s: woocommerce version
-#: includes/class-woocommerce-fonepay.php:116
-msgid "WooCommerce Fonepay depends on the last version of %s or later to work!"
+#: includes/class-woocommerce-fonepay.php:126
+msgid "WooCommerce Fonepay depends on the version of %s or later to work!"
 msgstr ""
 
 #. translators: %s: woocommerce version
-#: includes/class-woocommerce-fonepay.php:116
+#: includes/class-woocommerce-fonepay.php:126
 msgid "WooCommerce 3.0"
 msgstr ""
 
-#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:151
+#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:206
 msgid "IPN payment completed"
 msgstr ""
 
 #. translators: %s: payment status
-#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:167
+#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:241
 msgid "Payment %s via IPN."
 msgstr ""
 
 #. translators: %s: order link.
-#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:179
+#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:255
 msgid "Payment for cancelled order %s received"
 msgstr ""
 
 #. translators: %s: order ID.
-#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:181
+#: includes/gateways/class-wc-gateway-fonepay-ipn-handler.php:263
 msgid "Order #%s has been marked paid by Fonepay IPN, but was previously cancelled. Admin handling required."
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:15
+#: includes/gateways/settings-fonepay.php:16
 msgid "Enable/Disable"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:17
+#: includes/gateways/settings-fonepay.php:18
 msgid "Enable Fonepay Payment"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:21
+#: includes/gateways/settings-fonepay.php:22
 msgid "Title"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:24
+#: includes/gateways/settings-fonepay.php:25
 msgid "This controls the title which the user sees during checkout."
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:28
+#: includes/gateways/settings-fonepay.php:29
 msgid "Description"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:31
+#: includes/gateways/settings-fonepay.php:32
 msgid "This controls the description which the user sees during checkout."
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:32
-msgid "Pay via Fonepay; you can pay with Fonepay account securely."
+#: includes/gateways/settings-fonepay.php:33
+msgid "Pay via Fonepay; you can pay with Fonepay securely."
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:35
+#: includes/gateways/settings-fonepay.php:36
 msgid "Live Merchant Code"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:38
-#: includes/gateways/settings-fonepay.php:52
-msgid "Please enter your Fonepay Merchant Code; this is needed in order to take payment."
+#: includes/gateways/settings-fonepay.php:39
+msgid "Please enter your live Fonepay Merchant Code; this is needed in order to take payment."
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:42
+#: includes/gateways/settings-fonepay.php:43
+msgid "Live Merchant Secret"
+msgstr ""
+
+#: includes/gateways/settings-fonepay.php:46
+msgid "Please enter your Live Fonepay Merchant Secret; this is needed in order to take payment."
+msgstr ""
+
+#: includes/gateways/settings-fonepay.php:50
+msgid "Test Merchant code"
+msgstr ""
+
+#: includes/gateways/settings-fonepay.php:53
+msgid "Please enter your test Fonepay Merchant Code; this is needed in order to test payment."
+msgstr ""
+
+#: includes/gateways/settings-fonepay.php:57
 msgid "Test Merchant Secret"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:45
-#: includes/gateways/settings-fonepay.php:59
-msgid "Please enter your Fonepay Merchant Secret; this is needed in order to take payment."
+#: includes/gateways/settings-fonepay.php:60
+msgid "Please enter your test Fonepay Merchant Secret; this is needed in order to test payment."
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:63
+#: includes/gateways/settings-fonepay.php:64
 msgid "Advanced options"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:68
+#: includes/gateways/settings-fonepay.php:69
 msgid "Sandbox mode"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:70
+#: includes/gateways/settings-fonepay.php:71
 msgid "Enable Sandbox Mode"
 msgstr ""
 
 #. translators: %s: Fonepay contact page
-#: includes/gateways/settings-fonepay.php:73
+#: includes/gateways/settings-fonepay.php:74
 msgid "Enable Fonepay sandbox to test payments. Please contact Fonepay Merchant/Service Provider for a <a href=\"%s\" target=\"_blank\">developer account</a>."
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:76
+#: includes/gateways/settings-fonepay.php:77
 msgid "Debug log"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:78
+#: includes/gateways/settings-fonepay.php:79
 msgid "Enable logging"
 msgstr ""
 
 #. translators: %s: Fonepay log file path
-#: includes/gateways/settings-fonepay.php:81
+#: includes/gateways/settings-fonepay.php:82
 msgid "Log Fonepay events, such as IPN requests, inside <code>%s</code>"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:84
+#: includes/gateways/settings-fonepay.php:85
 msgid "IPN Email Notifications"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:86
+#: includes/gateways/settings-fonepay.php:87
 msgid "Enable IPN email notifications"
 msgstr ""
 
-#: includes/gateways/settings-fonepay.php:88
+#: includes/gateways/settings-fonepay.php:89
 msgid "Send notifications when an IPN is received from Fonepay indicating cancellations."
 msgstr ""
