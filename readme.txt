@@ -2,7 +2,7 @@
 Contributors: act360, prajwolshrestha
 Tags: woocommerce, Fonepay, payment gateway
 Requires at least: 5.0
-Tested up to: 6.4.3
+Tested up to: 6.8.1
 Stable tag: trunk
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -46,9 +46,9 @@ You can contribute to the source code in our [GitHub](https://github.com/act360/
 
 = Minimum Requirements =
 
-* PHP 5.6 or greater.
+* PHP 7.0 or greater.
 * WordPress 5.0 or greater.
-* WooCommerce 4.5 or greater.
+* WooCommerce 7.5 or greater.
 
 = Automatic installation =
 
@@ -74,9 +74,9 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = What is needed to use this plugin? =
 
-* PHP 5.6 or later.
-* WordPress 5.0 or later.
-* WooCommerce 4.5 or later.
+* PHP 7.0 or greater.
+* WordPress 5.0 or greater.
+* WooCommerce 7.5 or greater.
 * Merchant Code and Secret from Fonepay.
 
 = Which countries does Fonepay accepts payment from? =
@@ -102,7 +102,7 @@ From plugin version 1.1 onwards, there has been change in how the transaction is
 
 = Where can I report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or preferably on the [WooCommerce Fonepay GitHub repository](https://github.com/act360/fonepay-for-woocommerce/issues). You can directly reach our developers at developers@act360.com.np
+Bugs can be reported either in our support forum or preferably on the [WooCommerce Fonepay GitHub repository](https://github.com/act360/fonepay-for-woocommerce/issues).
 
 = Can I contribute to this plugin? =
 

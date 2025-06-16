@@ -6,14 +6,14 @@
  * Description: Integrate Fonepay in WooCommerce is a plugin that enables Fonepay payment in WooCommerce for Nepal.
  * Version: 1.2.0
  * Requires at least: 5.0
- * Requires PHP: 5.6
+ * Requires PHP: 7.0
  * Author: ACT360
  * Author URI: https://www.act360.com.np
  * Text Domain: woocommerce-fonepay
  * Domain Path: /languages
  *
- * WC requires at least: 4.5.0
- * WC tested up to: 8.7
+ * WC requires at least: 7.5.0
+ * WC tested up to: 6.8.1
  *
  * @package Fonepay-WooCommerce
  */

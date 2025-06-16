@@ -193,8 +193,7 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response
         if ($order->has_status(wc_get_is_paid_statuses())) {
             WC_Gateway_Fonepay::log('Aborting, Order #' . $order->get_id() . ' is already complete.');
 
-            //exit;
-            return;
+            exit;
         }
 
         if ($order->has_status('cancelled')) {
@@ -208,7 +207,7 @@ class WC_Gateway_Fonepay_IPN_Handler extends WC_Gateway_Fonepay_Response
         );
 
         // Log Fonepay Reference Code.
-        if (!empty($response['UID'])) {
+        if (!empty($requested['UID'])) {
             if (OrderUtil::custom_orders_table_usage_is_enabled()) {
                 // HPOS usage is enabled.
                 $order->update_meta_data(

@@ -11,7 +11,6 @@ defined('ABSPATH') || exit;
 /**
  * WC_Gateway_Fonepay_Request class.
  */
-#[\AllowDynamicProperties]
 class WC_Gateway_Fonepay_Request
 {
 
